@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <title>كيفية الدخول على الراوتر لجميع الأجهزة (TP-Link / Huawei / WE / Vodafone / STC) | إدراك</title>
+  <meta name="description" content="شرح سريع للدخول إلى صفحة إعدادات الراوتر لمعظم الموديلات: TP-Link، هواوي، WE، فودافون، و STC. يشمل عناوين IP الافتراضية، وأسماء المستخدم وكلمات المرور الافتراضية، وطريقة معرفة بوابة الشبكة، وحلول مشكلة عدم فتح الصفحة.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- canonical: المصدر الأصلي على إدراك -->
+  <link rel="canonical" href="https://idraaak.com/%D8%A7%D9%84%D8%AF%D8%AE%D9%88%D9%84-%D8%A7%D9%84%D9%89-%D8%A7%D9%84%D8%B1%D8%A7%D9%88%D8%AA%D8%B1/">
+  <style>
+    :root { --w: 860px; }
+    body { direction: rtl; font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif; line-height: 1.85; margin: 0; }
+    main { max-width: var(--w); margin: 42px auto; padding: 0 18px; }
+    h1 { font-size: 1.9rem; margin: 0 0 .6em; }
+    h2 { font-size: 1.35rem; margin: 1.6em 0 .6em; }
+    p { margin: .6em 0; }
+    ul { padding-inline-start: 20px; margin: .4em 0; }
+    li { margin: .25em 0; }
+    a { color: #0b5ed7; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .box { background:#f7f9fc; border:1px solid #e2e8f0; border-radius:12px; padding:14px 16px; }
+    table { width:100%; border-collapse: collapse; margin:.6em 0 1em; font-size:.98rem; }
+    th, td { border:1px solid #e5e7eb; padding:9px 8px; text-align:center; }
+    th { background:#f3f4f6; }
+    .note { color:#555; font-size:.95rem }
+    footer { margin: 26px 0 10px; color:#666; font-size:.92rem; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>كيفية الدخول على الراوتر لجميع الأجهزة (TP-Link / Huawei / WE / Vodafone / STC)</h1>
+  <p class="box">
+    أسرع طريقة: افتح المتصفّح واكتب عنوان الراوتر (IP الافتراضي) في شريط العنوان، ثم أدخل بيانات الدخول. إن لم تنجح، <strong>اعرف بوابة الشبكة</strong> من جهازك (Gateway) واستخدمها مباشرة.
+  </p>
+
+  <h2>عناوين الدخول الشائعة</h2>
+  <table>
+    <thead>
+      <tr><th>الشركة</th><th>عناوين دخول شائعة</th><th>ملاحظات</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TP-Link</td>
+        <td>
+          <a href="http://192.168.0.1">192.168.0.1</a> — <a href="http://192.168.1.1">192.168.1.1</a><br>
+          <a href="http://tplinkwifi.net">tplinkwifi.net</a>
+        </td>
+        <td>موديلات جديدة تطلب إنشاء كلمة مرور في أول دخول</td>
+      </tr>
+      <tr>
+        <td>Huawei (4G/5G/Fiber)</td>
+        <td>
+          <a href="http://192.168.8.1">192.168.8.1</a> — <a href="http://192.168.100.1">192.168.100.1</a> — (5G: <a href="http://192.168.3.1">192.168.3.1</a>)
+        </td>
+        <td>كلمة المرور غالبًا على الملصق الخلفي</td>
+      </tr>
+      <tr>
+        <td>WE (TE-Data)</td>
+        <td><a href="http://192.168.1.1">192.168.1.1</a></td>
+        <td>بيانات الـ Admin مطبوعة على الراوتر</td>
+      </tr>
+      <tr>
+        <td>Vodafone</td>
+        <td><a href="http://192.168.1.1">192.168.1.1</a> — <a href="http://192.168.0.1">192.168.0.1</a></td>
+        <td>قد تظهر صفحة بنطاق خاص مثل <code>vodafone.station</code></td>
+      </tr>
+      <tr>
+        <td>STC Fiber</td>
+        <td><a href="http://192.168.1.1">192.168.1.1</a> — <a href="http://192.168.100.1">192.168.100.1</a></td>
+        <td>موديلات GPON (هواوي/نوكيا…)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>خطوات عامة (لكل الراوترات)</h2>
+  <ul>
+    <li>اتصل بالراوتر عبر كابل LAN أو Wi-Fi الخاص به (وليس نقطة اتصال الهاتف).</li>
+    <li>افتح المتصفح واكتب عنوان الدخول (IP) بالأعلى، واضغط Enter.</li>
+    <li>أدخل اسم المستخدم وكلمة المرور الافتراضية (موجودة على ملصق الراوتر) أو التي قمت بتغييرها سابقًا.</li>
+    <li>إن لم يفتح العنوان، اعرف <strong>بوابة الشبكة</strong> ثم استخدمها:
+      <ul>
+        <li><strong>Windows:</strong> افتح موجه الأوامر واكتب: <code>ipconfig</code> ثم خذ قيمة <em>Default Gateway</em>.</li>
+        <li><strong>macOS:</strong> في الطرفية: <code>route -n get default | grep gateway</code></li>
+        <li><strong>Linux:</strong> في الطرفية: <code>ip route | grep default</code></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2 id="tp-link">الدخول على راوتر TP-Link</h2>
+  <ul>
+    <li>جرّب <a href="http://tplinkwifi.net">tplinkwifi.net</a> أو <a href="http://192.168.0.1">192.168.0.1</a> أو <a href="http://192.168.1.1">192.168.1.1</a>.</li>
+    <li>الموديلات الحديثة تطلب إنشاء كلمة مرور Admin عند أول دخول؛ القديمة كانت افتراضيًا <code>admin / admin</code>.</li>
+    <li>لو كان الجهاز من سلسلة Deco، فالإدارة تتم عبر تطبيق <strong>TP-Link Deco</strong>.</li>
+  </ul>
+
+  <h2 id="we">الدخول على راوتر WE (TE-Data)</h2>
+  <ul>
+    <li>افتح <a href="http://192.168.1.1">192.168.1.1</a>.</li>
+    <li>اسم المستخدم غالبًا <code>admin</code>، وكلمة المرور موجودة على ملصق الجهاز (أحيانًا الرقم التسلسلي أو كلمة مطبوعة).</li>
+    <li>بعد الدخول يُفضّل تغيير كلمة مرور الواي-فاي وكلمة مرور الـ Admin.</li>
+  </ul>
+
+  <h2 id="huawei">الدخول إلى راوتر Huawei</h2>
+  <ul>
+    <li>جرّب <a href="http://192.168.8.1">192.168.8.1</a> (راوترات 4G/5G) أو <a href="http://192.168.100.1">192.168.100.1</a> (ألياف).</li>
+    <li>البيانات الافتراضية عادة <code>admin</code> وكلمة المرور مطبوعة على الجهاز. في بعض الموديلات قد تكون أول دخول لإنشاء كلمة جديدة.</li>
+  </ul>
+
+  <h2 id="vodafone">الدخول على راوتر Vodafone</h2>
+  <ul>
+    <li>جرّب <a href="http://192.168.1.1">192.168.1.1</a> أو <a href="http://192.168.0.1">192.168.0.1</a>.</li>
+    <li>قد يظهر نطاق خاص مثل <code>vodafone.station</code>. بيانات الدخول الافتراضية على الملصق الخلفي.</li>
+  </ul>
+
+  <h2 id="stc">الدخول على راوتر STC (ألياف)</h2>
+  <ul>
+    <li>جرّب <a href="http://192.168.1.1">192.168.1.1</a> وإن لم يفتح فغالبًا <a href="http://192.168.100.1">192.168.100.1</a> على موديلات GPON (هواوي/نوكيا…)</li>
+    <li>اسم المستخدم عادة <code>admin</code> وكلمة المرور على الملصق. بعض الموديلات قد تستخدم بيانات مختلفة مطبوعة بوضوح.</li>
+  </ul>
+
+  <h2 id="problem">حل مشكلة عدم فتح صفحة الراوتر</h2>
+  <ul>
+    <li>تأكد أنك متصل بشبكة الراوتر نفسه (وليس بيانات الهاتف أو شبكة أخرى).</li>
+    <li>استخدم بروتوكول <strong>http</strong> (وليس https): مثل <code>http://192.168.1.1</code>.</li>
+    <li>اعرف بوابة الشبكة (Gateway) من جهازك واستخدمها كما بالخطوات العامة.</li>
+    <li>جرّب متصفحًا آخر، أو امسح الكاش: Windows → <code>ipconfig /flushdns</code>.</li>
+    <li>أعد تشغيل الراوتر والكمبيوتر. إن لم تتذكر كلمة المرور، يمكن عمل Reset بالزر الخلفي (يعيد الإعدادات الافتراضية).</li>
+  </ul>
+
+  <p class="note">لشرح مفصّل مصحوب بالصور لكل شركة وخيارات الأمان وتحديثات النظام وإخفاء الشبكة… <a href="https://idraaak.com/%D8%A7%D9%84%D8%AF%D8%AE%D9%88%D9%84-%D8%A7%D9%84%D9%89-%D8%A7%D9%84%D8%B1%D8%A7%D9%88%D8%AA%D8%B1/">اقرأ المقال الكامل على إدراك</a>.</p>
+
+  <footer>© <span id="y"></span> — نسخة موجزة للرجوع السريع. المصدر الأصلي: إدراك.</footer>
+</main>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
