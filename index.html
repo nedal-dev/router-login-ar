@@ -2,35 +2,51 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <title> الولوج على الراوتر لجميع الأجهزة   </title>
-  <meta name="description" content="شرح سريع للدخول إلى صفحة إعدادات الراوتر لمعظم الموديلات: TP-Link، هواوي، WE، فودافون، و STC. يشمل عناوين IP الافتراضية، وأسماء المستخدم وكلمات المرور الافتراضية، وطريقة معرفة بوابة الشبكة، وحلول مشكلة عدم فتح الصفحة.">
+  <title>الدخول إلى الراوتر لجميع الأجهزة | عناوين IP + خطوات وحلول</title>
+  <meta name="description" content="شرح عملي للدخول إلى صفحة إعدادات الراوتر لمعظم الموديلات: TP-Link، هواوي، WE، فودافون، STC. يتضمن عناوين IP الشائعة، كيفية معرفة بوابة الشبكة على ويندوز/ماك/لينكس وأندرويد وآيفون، وحلول مشكلة عدم فتح الصفحة، ونصائح الأمان.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- canonical: المصدر الأصلي على إدراك -->
-  <link rel="canonical" href="https://idraaak.com/%D8%A7%D9%84%D8%AF%D8%AE%D9%88%D9%84-%D8%A7%D9%84%D9%89-%D8%A7%D9%84%D8%B1%D8%A7%D9%88%D8%AA%D8%B1/">
+
+  <!-- نجعل الصفحة قابلة للأرشفة وتشير لنفسها -->
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://nedal-dev.github.io/router-login-ar/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="الدخول إلى الراوتر لجميع الأجهزة | عناوين IP + خطوات وحلول">
+  <meta property="og:description" content="كل ما تحتاجه للدخول إلى صفحة إعدادات الراوتر مع خطوات لكل نظام وحلول لأشهر المشاكل ونصائح أمان بعد تسجيل الدخول.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://nedal-dev.github.io/router-login-ar/">
+
   <style>
-    :root { --w: 860px; }
-    body { direction: rtl; font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif; line-height: 1.85; margin: 0; }
-    main { max-width: var(--w); margin: 42px auto; padding: 0 18px; }
-    h1 { font-size: 1.9rem; margin: 0 0 .6em; }
+    :root { --w: 880px; }
+    body { direction: rtl; font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif; line-height: 1.9; margin: 0; color:#0f172a; background:#fff; }
+    main { max-width: var(--w); margin: 44px auto; padding: 0 18px; }
+    h1 { font-size: 1.9rem; margin: .2em 0 .6em; }
     h2 { font-size: 1.35rem; margin: 1.6em 0 .6em; }
-    p { margin: .6em 0; }
-    ul { padding-inline-start: 20px; margin: .4em 0; }
-    li { margin: .25em 0; }
+    h3 { font-size: 1.1rem; margin: 1.2em 0 .4em; }
+    p { margin: .55em 0; }
     a { color: #0b5ed7; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .box { background:#f7f9fc; border:1px solid #e2e8f0; border-radius:12px; padding:14px 16px; }
-    table { width:100%; border-collapse: collapse; margin:.6em 0 1em; font-size:.98rem; }
+    table { width:100%; border-collapse: collapse; margin:.6em 0 1.2em; font-size:.98rem; }
     th, td { border:1px solid #e5e7eb; padding:9px 8px; text-align:center; }
     th { background:#f3f4f6; }
+    ul { padding-inline-start: 20px; margin: .4em 0; }
+    li { margin: .25em 0; }
+    code,kbd { background:#f3f4f6; border:1px solid #e5e7eb; border-radius:6px; padding:2px 6px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    pre  { background:#0b1220; color:#e5e7eb; border-radius:12px; padding:12px 14px; overflow:auto; direction:ltr }
     .note { color:#555; font-size:.95rem }
-    footer { margin: 26px 0 10px; color:#666; font-size:.92rem; }
+    footer { margin: 28px 0 14px; color:#5b6472; font-size:.95rem; text-align:center; }
+    .cta { display:inline-block; background:#0d6efd; color:#fff; border:1px solid #0a58ca; padding:10px 14px; border-radius:10px; text-decoration:none }
+    .cta:hover{ background:#0b5ed7 }
   </style>
 </head>
 <body>
 <main>
-  <h1>كيفية الدخول على الراوتر لجميع الأجهزة (TP-Link / Huawei / WE / Vodafone / STC)</h1>
+  <h1>كيفية الدخول إلى الراوتر لجميع الأجهزة (TP-Link / Huawei / WE / Vodafone / STC)</h1>
+
   <p class="box">
-    أسرع طريقة: افتح المتصفّح واكتب عنوان الراوتر (IP الافتراضي) في شريط العنوان، ثم أدخل بيانات الدخول. إن لم تنجح، <strong>اعرف بوابة الشبكة</strong> من جهازك (Gateway) واستخدمها مباشرة.
+    أسرع طريقة: افتح المتصفّح واكتب <b>عنوان الراوتر (IP)</b> في شريط العنوان ثم أدخل بيانات الإدارة.
+    إن لم تنجح، اعرف <b>بوابة الشبكة (Gateway)</b> على جهازك واستخدمها مباشرة — هذا هو العنوان الدقيق لصفحة الراوتر.
   </p>
 
   <h2>عناوين الدخول الشائعة</h2>
@@ -45,14 +61,14 @@
           <a href="http://192.168.0.1">192.168.0.1</a> — <a href="http://192.168.1.1">192.168.1.1</a><br>
           <a href="http://tplinkwifi.net">tplinkwifi.net</a>
         </td>
-        <td>موديلات جديدة تطلب إنشاء كلمة مرور في أول دخول</td>
+        <td>موديلات جديدة تطلب إنشاء كلمة مرور عند أول دخول</td>
       </tr>
       <tr>
         <td>Huawei (4G/5G/Fiber)</td>
         <td>
           <a href="http://192.168.8.1">192.168.8.1</a> — <a href="http://192.168.100.1">192.168.100.1</a> — (5G: <a href="http://192.168.3.1">192.168.3.1</a>)
         </td>
-        <td>كلمة المرور غالبًا على الملصق الخلفي</td>
+        <td>كلمة مرور الإدارة غالبًا على الملصق الخلفي</td>
       </tr>
       <tr>
         <td>WE (TE-Data)</td>
@@ -62,7 +78,7 @@
       <tr>
         <td>Vodafone</td>
         <td><a href="http://192.168.1.1">192.168.1.1</a> — <a href="http://192.168.0.1">192.168.0.1</a></td>
-        <td>قد تظهر صفحة بنطاق خاص مثل <code>vodafone.station</code></td>
+        <td>قد يظهر نطاق خاص مثل <code>vodafone.station</code></td>
       </tr>
       <tr>
         <td>STC Fiber</td>
@@ -72,65 +88,89 @@
     </tbody>
   </table>
 
-  <h2>خطوات عامة (لكل الراوترات)</h2>
+  <h2>كيف أعرف عنوان بوابة الشبكة (Gateway)؟</h2>
+  <p>هذه هي الطريقة الأدق للوصول لصفحة الراوتر، لأن بعض الشبكات تستخدم نطاقات مختلفة:</p>
+  <h3>Windows</h3>
+  <pre><code>ipconfig</code></pre>
+  <p>خذ قيمة <b>Default Gateway</b> واكتبها في المتصفّح.</p>
+
+  <h3>macOS</h3>
+  <pre><code>route -n get default | grep gateway</code></pre>
+
+  <h3>Linux</h3>
+  <pre><code>ip route | grep default</code></pre>
+
+  <h3>Android (من الهاتف)</h3>
   <ul>
-    <li>اتصل بالراوتر عبر كابل LAN أو Wi-Fi الخاص به (وليس نقطة اتصال الهاتف).</li>
-    <li>افتح المتصفح واكتب عنوان الدخول (IP) بالأعلى، واضغط Enter.</li>
-    <li>أدخل اسم المستخدم وكلمة المرور الافتراضية (موجودة على ملصق الراوتر) أو التي قمت بتغييرها سابقًا.</li>
-    <li>إن لم يفتح العنوان، اعرف <strong>بوابة الشبكة</strong> ثم استخدمها:
-      <ul>
-        <li><strong>Windows:</strong> افتح موجه الأوامر واكتب: <code>ipconfig</code> ثم خذ قيمة <em>Default Gateway</em>.</li>
-        <li><strong>macOS:</strong> في الطرفية: <code>route -n get default | grep gateway</code></li>
-        <li><strong>Linux:</strong> في الطرفية: <code>ip route | grep default</code></li>
-      </ul>
-    </li>
+    <li>الإعدادات &gt; Wi-Fi &gt; اضغط على الشبكة المتصل بها &gt; تفاصيل متقدمة &gt; <b>Gateway</b>.</li>
   </ul>
 
-  <h2 id="tp-link">الدخول على راوتر TP-Link</h2>
+  <h3>iPhone (من الهاتف)</h3>
   <ul>
-    <li>جرّب <a href="http://tplinkwifi.net">tplinkwifi.net</a> أو <a href="http://192.168.0.1">192.168.0.1</a> أو <a href="http://192.168.1.1">192.168.1.1</a>.</li>
-    <li>الموديلات الحديثة تطلب إنشاء كلمة مرور Admin عند أول دخول؛ القديمة كانت افتراضيًا <code>admin / admin</code>.</li>
-    <li>لو كان الجهاز من سلسلة Deco، فالإدارة تتم عبر تطبيق <strong>TP-Link Deco</strong>.</li>
+    <li>الإعدادات &gt; Wi-Fi &gt; اضغط علامة <b>i</b> بجانب الشبكة &gt; ستجد <b>الراوتر (Router)</b>.</li>
   </ul>
 
-  <h2 id="we">الدخول على راوتر WE (TE-Data)</h2>
+  <h2>خطوات عامة للدخول</h2>
   <ul>
-    <li>افتح <a href="http://192.168.1.1">192.168.1.1</a>.</li>
-    <li>اسم المستخدم غالبًا <code>admin</code>، وكلمة المرور موجودة على ملصق الجهاز (أحيانًا الرقم التسلسلي أو كلمة مطبوعة).</li>
-    <li>بعد الدخول يُفضّل تغيير كلمة مرور الواي-فاي وكلمة مرور الـ Admin.</li>
-  </ul>
-
-  <h2 id="huawei">الدخول إلى راوتر Huawei</h2>
-  <ul>
-    <li>جرّب <a href="http://192.168.8.1">192.168.8.1</a> (راوترات 4G/5G) أو <a href="http://192.168.100.1">192.168.100.1</a> (ألياف).</li>
-    <li>البيانات الافتراضية عادة <code>admin</code> وكلمة المرور مطبوعة على الجهاز. في بعض الموديلات قد تكون أول دخول لإنشاء كلمة جديدة.</li>
-  </ul>
-
-  <h2 id="vodafone">الدخول على راوتر Vodafone</h2>
-  <ul>
-    <li>جرّب <a href="http://192.168.1.1">192.168.1.1</a> أو <a href="http://192.168.0.1">192.168.0.1</a>.</li>
-    <li>قد يظهر نطاق خاص مثل <code>vodafone.station</code>. بيانات الدخول الافتراضية على الملصق الخلفي.</li>
-  </ul>
-
-  <h2 id="stc">الدخول على راوتر STC (ألياف)</h2>
-  <ul>
-    <li>جرّب <a href="http://192.168.1.1">192.168.1.1</a> وإن لم يفتح فغالبًا <a href="http://192.168.100.1">192.168.100.1</a> على موديلات GPON (هواوي/نوكيا…)</li>
-    <li>اسم المستخدم عادة <code>admin</code> وكلمة المرور على الملصق. بعض الموديلات قد تستخدم بيانات مختلفة مطبوعة بوضوح.</li>
+    <li>اتصل بشبكة الراوتر (LAN أو Wi-Fi) ثم افتح المتصفّح.</li>
+    <li>اكتب <code>http://بوابة-الشبكة</code> (وليس <code>https</code> غالبًا).</li>
+    <li>أدخل اسم المستخدم وكلمة المرور (على ملصق الجهاز عادة). إن كانت قد تغيرت، أدخل القيم الجديدة التي تعرفها.</li>
   </ul>
 
   <h2 id="problem">حل مشكلة عدم فتح صفحة الراوتر</h2>
   <ul>
-    <li>تأكد أنك متصل بشبكة الراوتر نفسه (وليس بيانات الهاتف أو شبكة أخرى).</li>
-    <li>استخدم بروتوكول <strong>http</strong> (وليس https): مثل <code>http://192.168.1.1</code>.</li>
-    <li>اعرف بوابة الشبكة (Gateway) من جهازك واستخدمها كما بالخطوات العامة.</li>
-    <li>جرّب متصفحًا آخر، أو امسح الكاش: Windows → <code>ipconfig /flushdns</code>.</li>
-    <li>أعد تشغيل الراوتر والكمبيوتر. إن لم تتذكر كلمة المرور، يمكن عمل Reset بالزر الخلفي (يعيد الإعدادات الافتراضية).</li>
+    <li>تأكد من الاتصال الصحيح بشبكة الراوتر وأن العنوان هو <b>Gateway</b> الفعلي.</li>
+    <li>جرّب متصفّحًا آخر، وامسح الكاش: Windows → <code>ipconfig /flushdns</code>.</li>
+    <li>أعد تشغيل الراوتر والكمبيوتر. إن نسيت بيانات الدخول، يمكن ضغط زر <b>Reset</b> (يعيد الإعدادات الافتراضية).</li>
+    <li>بعض الموديلات تُدار عبر تطبيق الشركة (مثل Deco من TP-Link) — راجع دليل الجهاز.</li>
   </ul>
 
-  <p class="note">لشرح مفصّل مصحوب بالصور لكل شركة وخيارات الأمان وتحديثات النظام وإخفاء الشبكة… <a href="https://idraaak.com/%D8%A7%D9%84%D8%AF%D8%AE%D9%88%D9%84-%D8%A7%D9%84%D9%89-%D8%A7%D9%84%D8%B1%D8%A7%D9%88%D8%AA%D8%B1/">اقرأ المقال الكامل على إدراك</a>.</p>
+  <h2>نصائح الأمان بعد الدخول</h2>
+  <ul>
+    <li>غيّر كلمة مرور الإدارة الافتراضية فورًا، واختر كلمة قوية مختلفة عن كلمة Wi-Fi.</li>
+    <li>حدّث البرنامج الثابت (Firmware) إن وجد تحديث متاح من صفحة الدعم.</li>
+    <li>فعّل تشفير <b>WPA2/WPA3</b>، وغيّر كلمة Wi-Fi إلى كلمة قوية، وفكّر بإيقاف <b>WPS</b>.</li>
+    <li>احفظ نسخة احتياطية من الإعدادات بعد الضبط (Backup/Restore).</li>
+  </ul>
 
-  <footer>© <span id="y"></span> — نسخة موجزة للرجوع السريع. المصدر الأصلي: إدراك.</footer>
+  <p class="note">
+    لشرح مصوّر موسّع لكل شركة مع مزيد من الحلول: 
+    <a href="https://idraaak.com/%D8%A7%D9%84%D8%AF%D8%AE%D9%88%D9%84-%D8%A7%D9%84%D9%89-%D8%A7%D9%84%D8%B1%D8%A7%D9%88%D8%AA%D8%B1/" target="_blank" rel="noopener">اقرأ المقال الكامل على إدراك</a>.
+  </p>
+
+  <footer>© <span id="y"></span> — نسخة موجزة للرجوع السريع. هذه الصفحة قابلة للأرشفة وتشير لنفسها (canonical).</footer>
 </main>
+
+<!-- FAQ Schema لتحسين الفهم الدلالي لدى محركات البحث -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"ما هو عنوان الدخول الصحيح لصفحة الراوتر؟",
+      "acceptedAnswer":{"@type":"Answer","text":"الأدق هو استخدام عنوان بوابة الشبكة (Gateway) على جهازك. على Windows: ipconfig ثم Default Gateway. اكتب هذا العنوان في المتصفّح بصيغة http://العنوان."}
+    },
+    {
+      "@type":"Question",
+      "name":"لماذا لا تفتح صفحة 192.168.1.1 لدي؟",
+      "acceptedAnswer":{"@type":"Answer","text":"قد تكون شبكتك تعمل على نطاق آخر (مثل 192.168.0.1 أو 192.168.100.1). اعرف Gateway الحقيقي من جهازك واستخدمه. جرّب أيضًا متصفحًا آخر أو امسح الكاش."}
+    },
+    {
+      "@type":"Question",
+      "name":"نسيت كلمة مرور الراوتر، ماذا أفعل؟",
+      "acceptedAnswer":{"@type":"Answer","text":"جرّب البيانات المطبوعة على ملصق الجهاز. إن لم تنجح، استخدم زر Reset لإعادة الإعدادات الافتراضية ثم أعد الضبط وتغيير كلمة الإدارة والـ Wi-Fi."}
+    },
+    {
+      "@type":"Question",
+      "name":"ما أهم خطوات الأمان بعد تسجيل الدخول؟",
+      "acceptedAnswer":{"@type":"Answer","text":"غيّر كلمة مرور الإدارة الافتراضية، فعّل تشفير WPA2/WPA3، أوقف WPS إن أمكن، حدّث البرنامج الثابت، واحفظ نسخة احتياطية من الإعدادات."}
+    }
+  ]
+}
+</script>
+
 <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
