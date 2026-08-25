@@ -2,175 +2,115 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <title>الدخول إلى الراوتر لجميع الأجهزة | عناوين IP + خطوات وحلول</title>
-  <meta name="description" content="شرح عملي للدخول إلى صفحة إعدادات الراوتر لمعظم الموديلات: TP-Link، هواوي، WE، فودافون، STC. يتضمن عناوين IP الشائعة، كيفية معرفة بوابة الشبكة على ويندوز/ماك/لينكس وأندرويد وآيفون، وحلول مشكلة عدم فتح الصفحة، ونصائح الأمان.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- نجعل الصفحة قابلة للأرشفة وتشير لنفسها -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>فتح صفحة إعدادات الراوتر تلقائيًا | router-login-ar</title>
+  <meta name="description" content="نزّل أداة عربية صغيرة تكتشف عنوان الراوتر وتفتح صفحة الإعدادات تلقائيًا على Windows وLinux وmacOS، مع إمكانية إدخال العنوان يدويًا.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://nedal-dev.github.io/router-login-ar/">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="الدخول إلى الراوتر لجميع الأجهزة | عناوين IP + خطوات وحلول">
-  <meta property="og:description" content="كل ما تحتاجه للدخول إلى صفحة إعدادات الراوتر مع خطوات لكل نظام وحلول لأشهر المشاكل ونصائح أمان بعد تسجيل الدخول.">
-  <meta property="og:type" content="article">
+  <meta property="og:title" content="فتح صفحة إعدادات الراوتر تلقائيًا">
+  <meta property="og:description" content="أداة محلية مفتوحة المصدر لاكتشاف بوابة الشبكة وفتح صفحة الراوتر على Windows وLinux وmacOS.">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://nedal-dev.github.io/router-login-ar/">
-
   <style>
-    :root { --w: 880px; }
-    body { direction: rtl; font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif; line-height: 1.9; margin: 0; color:#0f172a; background:#fff; }
-    main { max-width: var(--w); margin: 44px auto; padding: 0 18px; }
-    h1 { font-size: 1.9rem; margin: .2em 0 .6em; }
-    h2 { font-size: 1.35rem; margin: 1.6em 0 .6em; }
-    h3 { font-size: 1.1rem; margin: 1.2em 0 .4em; }
-    p { margin: .55em 0; }
-    a { color: #0b5ed7; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .box { background:#f7f9fc; border:1px solid #e2e8f0; border-radius:12px; padding:14px 16px; }
-    table { width:100%; border-collapse: collapse; margin:.6em 0 1.2em; font-size:.98rem; }
-    th, td { border:1px solid #e5e7eb; padding:9px 8px; text-align:center; }
-    th { background:#f3f4f6; }
-    ul { padding-inline-start: 20px; margin: .4em 0; }
-    li { margin: .25em 0; }
-    code,kbd { background:#f3f4f6; border:1px solid #e5e7eb; border-radius:6px; padding:2px 6px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-    pre  { background:#0b1220; color:#e5e7eb; border-radius:12px; padding:12px 14px; overflow:auto; direction:ltr }
-    .note { color:#555; font-size:.95rem }
-    footer { margin: 28px 0 14px; color:#5b6472; font-size:.95rem; text-align:center; }
-    .cta { display:inline-block; background:#0d6efd; color:#fff; border:1px solid #0a58ca; padding:10px 14px; border-radius:10px; text-decoration:none }
-    .cta:hover{ background:#0b5ed7 }
+    :root{color-scheme:light;--bg:#f5f7fb;--card:#fff;--text:#172033;--muted:#5e687a;--line:#dce2eb;--primary:#1769aa;--primary-dark:#0f4f82;--soft:#eaf4fc;--success:#157347}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,"Segoe UI",Arial,sans-serif;line-height:1.8}
+    a{color:var(--primary)}
+    .hero{background:linear-gradient(135deg,#0f4f82,#1769aa);color:#fff;padding:38px 16px 48px}
+    .wrap{width:min(880px,100%);margin:0 auto}
+    h1{margin:0 0 10px;font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.4}
+    .hero p{margin:0;color:#eaf4fc;max-width:720px}
+    main{padding:0 14px 36px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin:18px 0}
+    .download-card{margin-top:-24px;position:relative}
+    h2{margin:0 0 8px;font-size:1.4rem;line-height:1.45}
+    h3{margin:20px 0 6px;font-size:1.08rem}
+    .muted{color:var(--muted)}
+    .buttons{display:grid;grid-template-columns:1fr;gap:10px;margin:16px 0 8px}
+    .button{display:flex;align-items:center;justify-content:center;min-height:50px;padding:10px 14px;border-radius:11px;background:var(--primary);color:#fff;text-decoration:none;font-weight:700;text-align:center}
+    .button.secondary{background:#fff;color:var(--primary-dark);border:1px solid var(--primary)}
+    .button:hover,.button:focus-visible{outline:3px solid var(--soft)}
+    .steps{padding-right:22px;margin:10px 0}
+    code{direction:ltr;unicode-bidi:isolate;background:#f2f4f8;border:1px solid var(--line);border-radius:6px;padding:2px 6px;font-family:Consolas,"Courier New",monospace}
+    .privacy{background:#eff8f3;border-right:4px solid var(--success);padding:12px 14px;border-radius:10px}
+    footer{text-align:center;color:var(--muted);padding:20px 14px 32px}
+    @media (min-width:640px){main{padding-inline:20px}.card{padding:25px}.buttons{grid-template-columns:repeat(2,minmax(0,1fr))}}
   </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"router-login-ar",
+    "applicationCategory":"UtilitiesApplication",
+    "operatingSystem":"Windows, Linux, macOS",
+    "isAccessibleForFree":true,
+    "url":"https://nedal-dev.github.io/router-login-ar/",
+    "description":"أداة محلية مفتوحة المصدر تكتشف بوابة الشبكة وتفتح صفحة إعدادات الراوتر."
+  }
+  </script>
 </head>
 <body>
-<main>
-  <h1>كيفية الدخول إلى الراوتر لجميع الأجهزة (TP-Link / Huawei / WE / Vodafone / STC)</h1>
+  <header class="hero">
+    <div class="wrap">
+      <h1>افتح صفحة إعدادات الراوتر تلقائيًا</h1>
+      <p>نزّل الملف المناسب لنظامك وشغّله. ستكتشف الأداة عنوان بوابة الشبكة وتفتح صفحة الراوتر في المتصفح من دون البحث عن عنوان IP يدويًا.</p>
+    </div>
+  </header>
 
-  <p class="box">
-    أسرع طريقة: افتح المتصفّح واكتب <b>عنوان الراوتر (IP)</b> في شريط العنوان ثم أدخل بيانات الإدارة.
-    إن لم تنجح، اعرف <b>بوابة الشبكة (Gateway)</b> على جهازك واستخدمها مباشرة — هذا هو العنوان الدقيق لصفحة الراوتر.
-  </p>
+  <main class="wrap">
+    <section class="card download-card" aria-labelledby="download-title">
+      <h2 id="download-title">اختر نظام التشغيل</h2>
+      <p class="muted">إذا كنت تستخدم Windows اختر الزر الأول. مستخدمو Linux وmacOS يختارون الزر الثاني.</p>
+      <div class="buttons">
+        <a class="button" href="https://github.com/nedal-dev/router-login-ar/raw/refs/heads/main/router-login.bat">تنزيل ملف Windows</a>
+        <a class="button" href="https://github.com/nedal-dev/router-login-ar/raw/refs/heads/main/router-login.sh">تنزيل ملف Linux / macOS</a>
+      </div>
+      <p><a href="https://github.com/nedal-dev/router-login-ar">عرض الكود المصدري على GitHub</a></p>
+    </section>
 
-  <h2>عناوين الدخول الشائعة</h2>
-  <table>
-    <thead>
-      <tr><th>الشركة</th><th>عناوين دخول شائعة</th><th>ملاحظات</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>TP-Link</td>
-        <td>
-          <a href="http://192.168.0.1">192.168.0.1</a> — <a href="http://192.168.1.1">192.168.1.1</a><br>
-          <a href="http://tplinkwifi.net">tplinkwifi.net</a>
-        </td>
-        <td>موديلات جديدة تطلب إنشاء كلمة مرور عند أول دخول</td>
-      </tr>
-      <tr>
-        <td>Huawei (4G/5G/Fiber)</td>
-        <td>
-          <a href="http://192.168.8.1">192.168.8.1</a> — <a href="http://192.168.100.1">192.168.100.1</a> — (5G: <a href="http://192.168.3.1">192.168.3.1</a>)
-        </td>
-        <td>كلمة مرور الإدارة غالبًا على الملصق الخلفي</td>
-      </tr>
-      <tr>
-        <td>WE (TE-Data)</td>
-        <td><a href="http://192.168.1.1">192.168.1.1</a></td>
-        <td>بيانات الـ Admin مطبوعة على الراوتر</td>
-      </tr>
-      <tr>
-        <td>Vodafone</td>
-        <td><a href="http://192.168.1.1">192.168.1.1</a> — <a href="http://192.168.0.1">192.168.0.1</a></td>
-        <td>قد يظهر نطاق خاص مثل <code>vodafone.station</code></td>
-      </tr>
-      <tr>
-        <td>STC Fiber</td>
-        <td><a href="http://192.168.1.1">192.168.1.1</a> — <a href="http://192.168.100.1">192.168.100.1</a></td>
-        <td>موديلات GPON (هواوي/نوكيا…)</td>
-      </tr>
-    </tbody>
-  </table>
+    <section class="card" aria-labelledby="windows-title">
+      <h2 id="windows-title">التشغيل على Windows</h2>
+      <ol class="steps">
+        <li>نزّل ملف <code>router-login.bat</code>.</li>
+        <li>تأكد من اتصال الكمبيوتر بشبكة الراوتر.</li>
+        <li>انقر مرتين على الملف.</li>
+        <li>ستفتح صفحة الراوتر في المتصفح الافتراضي.</li>
+      </ol>
+      <p class="muted">لا يعتمد الاكتشاف على لغة Windows، لذلك يعمل حتى لو كانت واجهة النظام هولندية أو عربية.</p>
+    </section>
 
-  <h2>كيف أعرف عنوان بوابة الشبكة (Gateway)؟</h2>
-  <p>هذه هي الطريقة الأدق للوصول لصفحة الراوتر، لأن بعض الشبكات تستخدم نطاقات مختلفة:</p>
-  <h3>Windows</h3>
-  <pre><code>ipconfig</code></pre>
-  <p>خذ قيمة <b>Default Gateway</b> واكتبها في المتصفّح.</p>
+    <section class="card" aria-labelledby="unix-title">
+      <h2 id="unix-title">التشغيل على Linux أو macOS</h2>
+      <ol class="steps">
+        <li>نزّل ملف <code>router-login.sh</code>.</li>
+        <li>امنحه صلاحية التشغيل بالأمر <code>chmod +x router-login.sh</code>.</li>
+        <li>شغّله بالأمر <code>./router-login.sh</code>.</li>
+      </ol>
+      <p>إذا تعذر الاكتشاف، يمكنك كتابة العنوان يدويًا بعد اسم الملف، مثل <code>./router-login.sh 192.168.1.1</code>.</p>
+    </section>
 
-  <h3>macOS</h3>
-  <pre><code>route -n get default | grep gateway</code></pre>
+    <section class="card" aria-labelledby="problem-title">
+      <h2 id="problem-title">إذا لم تفتح صفحة الراوتر</h2>
+      <ol class="steps">
+        <li>تأكد من اتصال الجهاز بشبكة الراوتر نفسها.</li>
+        <li>جرّب العنوان الذي تعرضه الأداة يدويًا.</li>
+        <li>لا تستخدم زر Reset لمجرد أن الصفحة لم تفتح؛ قد يمسح إعدادات الاتصال.</li>
+        <li>قد تمنع شبكة الضيوف الوصول إلى صفحة الإدارة.</li>
+      </ol>
+    </section>
 
-  <h3>Linux</h3>
-  <pre><code>ip route | grep default</code></pre>
+    <section class="card" aria-labelledby="privacy-title">
+      <h2 id="privacy-title">الخصوصية والأمان</h2>
+      <div class="privacy">تعمل الأداة محليًا بالكامل. لا تجمع بيانات، ولا تقرأ كلمات المرور، ولا تغيّر إعدادات الراوتر؛ وظيفتها فقط اكتشاف عنوان بوابة الشبكة وفتحه.</div>
+    </section>
 
-  <h3>Android (من الهاتف)</h3>
-  <ul>
-    <li>الإعدادات &gt; Wi-Fi &gt; اضغط على الشبكة المتصل بها &gt; تفاصيل متقدمة &gt; <b>Gateway</b>.</li>
-  </ul>
+    <section class="card" aria-labelledby="article-title">
+      <h2 id="article-title">تحتاج شرحًا أوسع؟</h2>
+      <p>يتضمن مقال إدراك طرق معرفة عنوان الراوتر من الهاتف والكمبيوتر وحلول مشكلة عدم فتح صفحة الإعدادات.</p>
+      <p><a class="button secondary" href="https://idraaak.com/%D8%A7%D9%84%D8%AF%D8%AE%D9%88%D9%84-%D8%A7%D9%84%D9%89-%D8%A7%D9%84%D8%B1%D8%A7%D9%88%D8%AA%D8%B1/">قراءة الشرح الكامل على إدراك</a></p>
+    </section>
+  </main>
 
-  <h3>iPhone (من الهاتف)</h3>
-  <ul>
-    <li>الإعدادات &gt; Wi-Fi &gt; اضغط علامة <b>i</b> بجانب الشبكة &gt; ستجد <b>الراوتر (Router)</b>.</li>
-  </ul>
-
-  <h2>خطوات عامة للدخول</h2>
-  <ul>
-    <li>اتصل بشبكة الراوتر (LAN أو Wi-Fi) ثم افتح المتصفّح.</li>
-    <li>اكتب <code>http://بوابة-الشبكة</code> (وليس <code>https</code> غالبًا).</li>
-    <li>أدخل اسم المستخدم وكلمة المرور (على ملصق الجهاز عادة). إن كانت قد تغيرت، أدخل القيم الجديدة التي تعرفها.</li>
-  </ul>
-
-  <h2 id="problem">حل مشكلة عدم فتح صفحة الراوتر</h2>
-  <ul>
-    <li>تأكد من الاتصال الصحيح بشبكة الراوتر وأن العنوان هو <b>Gateway</b> الفعلي.</li>
-    <li>جرّب متصفّحًا آخر، وامسح الكاش: Windows → <code>ipconfig /flushdns</code>.</li>
-    <li>أعد تشغيل الراوتر والكمبيوتر. إن نسيت بيانات الدخول، يمكن ضغط زر <b>Reset</b> (يعيد الإعدادات الافتراضية).</li>
-    <li>بعض الموديلات تُدار عبر تطبيق الشركة (مثل Deco من TP-Link) — راجع دليل الجهاز.</li>
-  </ul>
-
-  <h2>نصائح الأمان بعد الدخول</h2>
-  <ul>
-    <li>غيّر كلمة مرور الإدارة الافتراضية فورًا، واختر كلمة قوية مختلفة عن كلمة Wi-Fi.</li>
-    <li>حدّث البرنامج الثابت (Firmware) إن وجد تحديث متاح من صفحة الدعم.</li>
-    <li>فعّل تشفير <b>WPA2/WPA3</b>، وغيّر كلمة Wi-Fi إلى كلمة قوية، وفكّر بإيقاف <b>WPS</b>.</li>
-    <li>احفظ نسخة احتياطية من الإعدادات بعد الضبط (Backup/Restore).</li>
-  </ul>
-
-  <p class="note">
-    لشرح مصوّر موسّع لكل شركة مع مزيد من الحلول: 
-    <a href="https://idraaak.com/%D8%A7%D9%84%D8%AF%D8%AE%D9%88%D9%84-%D8%A7%D9%84%D9%89-%D8%A7%D9%84%D8%B1%D8%A7%D9%88%D8%AA%D8%B1/" target="_blank" rel="noopener">اقرأ المقال الكامل على إدراك</a>.
-  </p>
-
-  <footer>© <span id="y"></span> — نسخة موجزة للرجوع السريع. هذه الصفحة قابلة للأرشفة وتشير لنفسها (canonical).</footer>
-</main>
-
-<!-- FAQ Schema لتحسين الفهم الدلالي لدى محركات البحث -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {
-      "@type":"Question",
-      "name":"ما هو عنوان الدخول الصحيح لصفحة الراوتر؟",
-      "acceptedAnswer":{"@type":"Answer","text":"الأدق هو استخدام عنوان بوابة الشبكة (Gateway) على جهازك. على Windows: ipconfig ثم Default Gateway. اكتب هذا العنوان في المتصفّح بصيغة http://العنوان."}
-    },
-    {
-      "@type":"Question",
-      "name":"لماذا لا تفتح صفحة 192.168.1.1 لدي؟",
-      "acceptedAnswer":{"@type":"Answer","text":"قد تكون شبكتك تعمل على نطاق آخر (مثل 192.168.0.1 أو 192.168.100.1). اعرف Gateway الحقيقي من جهازك واستخدمه. جرّب أيضًا متصفحًا آخر أو امسح الكاش."}
-    },
-    {
-      "@type":"Question",
-      "name":"نسيت كلمة مرور الراوتر، ماذا أفعل؟",
-      "acceptedAnswer":{"@type":"Answer","text":"جرّب البيانات المطبوعة على ملصق الجهاز. إن لم تنجح، استخدم زر Reset لإعادة الإعدادات الافتراضية ثم أعد الضبط وتغيير كلمة الإدارة والـ Wi-Fi."}
-    },
-    {
-      "@type":"Question",
-      "name":"ما أهم خطوات الأمان بعد تسجيل الدخول؟",
-      "acceptedAnswer":{"@type":"Answer","text":"غيّر كلمة مرور الإدارة الافتراضية، فعّل تشفير WPA2/WPA3، أوقف WPS إن أمكن، حدّث البرنامج الثابت، واحفظ نسخة احتياطية من الإعدادات."}
-    }
-  ]
-}
-</script>
-
-<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+  <footer>مشروع عربي مفتوح المصدر من نضال ش. — <a href="https://idraaak.com/">إدراك</a></footer>
 </body>
 </html>
