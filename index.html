@@ -3,114 +3,197 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>فتح صفحة إعدادات الراوتر تلقائيًا | router-login-ar</title>
-  <meta name="description" content="نزّل أداة عربية صغيرة تكتشف عنوان الراوتر وتفتح صفحة الإعدادات تلقائيًا على Windows وLinux وmacOS، مع إمكانية إدخال العنوان يدويًا.">
+  <title>الدخول إلى إعدادات الراوتر وحل مشكلة عدم فتح الصفحة | دليل عملي</title>
+  <meta name="description" content="أداة عربية تكتشف عنوان الراوتر وتفتح صفحة الإعدادات محليًا، مع دليل عملي لمعرفة عنوان البوابة وحل مشكلات الاتصال وكلمة مرور الإدارة بأمان.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://nedal-dev.github.io/router-login-ar/">
-  <meta property="og:title" content="فتح صفحة إعدادات الراوتر تلقائيًا">
-  <meta property="og:description" content="أداة محلية مفتوحة المصدر لاكتشاف بوابة الشبكة وفتح صفحة الراوتر على Windows وLinux وmacOS.">
-  <meta property="og:type" content="website">
+  <meta property="og:title" content="الدخول إلى إعدادات الراوتر وحل مشكلة عدم فتح الصفحة">
+  <meta property="og:description" content="نزّل أداة فتح الراوتر أو اتبع خطوات معرفة عنوان البوابة وتشخيص أسباب تعذر الوصول إلى لوحة الإدارة.">
+  <meta property="og:type" content="article">
   <meta property="og:url" content="https://nedal-dev.github.io/router-login-ar/">
   <style>
-    :root{color-scheme:light;--bg:#f5f7fb;--card:#fff;--text:#172033;--muted:#5e687a;--line:#dce2eb;--primary:#1769aa;--primary-dark:#0f4f82;--soft:#eaf4fc;--success:#157347}
+    :root{--ink:#10243b;--muted:#53667c;--blue:#12649d;--blue-dark:#0b466f;--line:#d9e4ee;--soft:#f1f7fb;--green:#137a55;--green-soft:#edf9f4;--amber:#9a6200;--amber-soft:#fff8e8;--red:#a63030;--red-soft:#fff1f1;--w:980px}
     *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,"Segoe UI",Arial,sans-serif;line-height:1.8}
-    a{color:var(--primary)}
-    .hero{background:linear-gradient(135deg,#0f4f82,#1769aa);color:#fff;padding:38px 16px 48px}
-    .wrap{width:min(880px,100%);margin:0 auto}
-    h1{margin:0 0 10px;font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.4}
-    .hero p{margin:0;color:#eaf4fc;max-width:720px}
-    main{padding:0 14px 36px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin:18px 0}
-    .download-card{margin-top:-24px;position:relative}
-    h2{margin:0 0 8px;font-size:1.4rem;line-height:1.45}
-    h3{margin:20px 0 6px;font-size:1.08rem}
-    .muted{color:var(--muted)}
-    .buttons{display:grid;grid-template-columns:1fr;gap:10px;margin:16px 0 8px}
-    .button{display:flex;align-items:center;justify-content:center;min-height:50px;padding:10px 14px;border-radius:11px;background:var(--primary);color:#fff;text-decoration:none;font-weight:700;text-align:center}
-    .button.secondary{background:#fff;color:var(--primary-dark);border:1px solid var(--primary)}
-    .button:hover,.button:focus-visible{outline:3px solid var(--soft)}
-    .steps{padding-right:22px;margin:10px 0}
-    code{direction:ltr;unicode-bidi:isolate;background:#f2f4f8;border:1px solid var(--line);border-radius:6px;padding:2px 6px;font-family:Consolas,"Courier New",monospace}
-    .privacy{background:#eff8f3;border-right:4px solid var(--success);padding:12px 14px;border-radius:10px}
-    footer{text-align:center;color:var(--muted);padding:20px 14px 32px}
-    @media (min-width:640px){main{padding-inline:20px}.card{padding:25px}.buttons{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    body{margin:0;background:#f4f8fb;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.9}
+    a{color:#075fa7}
+    header{background:linear-gradient(135deg,#0a4169,#1678b7);color:#fff}
+    .hero{max-width:var(--w);margin:auto;padding:54px 22px 65px}
+    .eyebrow{display:inline-block;border:1px solid rgba(255,255,255,.38);background:rgba(255,255,255,.12);border-radius:999px;padding:4px 12px;font-size:.9rem;font-weight:750}
+    h1{font-size:clamp(2rem,5vw,3.35rem);line-height:1.32;margin:15px 0 12px;max-width:880px}
+    .lead{font-size:1.1rem;color:#e4f2fb;max-width:820px;margin:0}
+    main{max-width:var(--w);margin:-31px auto 0;padding:0 18px 44px}
+    article,.download-card{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 16px 42px rgba(19,54,84,.09)}
+    .download-card{padding:24px;margin-bottom:20px;position:relative}
+    article{padding:clamp(20px,4vw,42px)}
+    h2{font-size:1.55rem;margin:2.15rem 0 .7rem}
+    h3{font-size:1.12rem;margin:1.25rem 0 .35rem}
+    p{margin:.55rem 0 1rem}
+    .buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin-top:16px}
+    .button{display:flex;align-items:center;justify-content:center;min-height:52px;padding:10px 14px;border-radius:11px;background:var(--blue);color:#fff;text-decoration:none;font-weight:800;text-align:center}
+    .button.secondary{background:#fff;color:var(--blue-dark);border:1px solid var(--blue)}
+    .summary{background:var(--green-soft);border-right:4px solid var(--green);padding:17px 19px;border-radius:13px;margin-bottom:26px}
+    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px;margin:14px 0 22px}
+    table{border-collapse:collapse;width:100%;min-width:700px}
+    th,td{text-align:right;padding:13px 15px;border-bottom:1px solid var(--line);vertical-align:top}
+    th{background:var(--soft);font-weight:800}
+    tr:last-child td{border-bottom:0}
+    code{direction:ltr;unicode-bidi:isolate;background:#edf2f6;border:1px solid var(--line);border-radius:6px;padding:2px 6px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+    pre{direction:ltr;text-align:left;background:#102238;color:#eaf2fa;padding:14px;border-radius:11px;overflow:auto}
+    .steps{counter-reset:step;list-style:none;padding:0;margin:14px 0}
+    .steps li{position:relative;padding:0 52px 18px 0;min-height:42px}
+    .steps li::before{counter-increment:step;content:counter(step);position:absolute;right:0;top:2px;width:35px;height:35px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:#fff;font-weight:800}
+    .callout{padding:16px 18px;border-radius:13px;margin:18px 0;border-right:4px solid}
+    .callout.ok{background:var(--green-soft);border-color:var(--green)}
+    .callout.warn{background:var(--amber-soft);border-color:var(--amber)}
+    .callout.danger{background:var(--red-soft);border-color:var(--red)}
+    .two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:14px 0}
+    .card{border:1px solid var(--line);border-radius:14px;padding:17px;background:#fff}
+    .card h3{margin-top:0}
+    ul{padding-inline-start:24px}
+    li{margin:.35rem 0}
+    details{border:1px solid var(--line);border-radius:12px;padding:12px 15px;margin:10px 0}
+    summary{cursor:pointer;font-weight:800}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:27px;padding-top:22px;border-top:1px solid var(--line)}
+    .cta{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;font-weight:800;padding:11px 17px;border-radius:11px}
+    .small{font-size:.93rem;color:var(--muted)}
+    footer{text-align:center;color:var(--muted);padding:22px 15px 34px}
+    @media(max-width:720px){.buttons,.two-col{grid-template-columns:1fr}.hero{padding-top:38px}article,.download-card{border-radius:17px}.steps li{padding-right:47px}}
   </style>
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"SoftwareApplication",
-    "name":"router-login-ar",
-    "applicationCategory":"UtilitiesApplication",
-    "operatingSystem":"Windows, Linux, macOS",
-    "isAccessibleForFree":true,
-    "url":"https://nedal-dev.github.io/router-login-ar/",
-    "description":"أداة محلية مفتوحة المصدر تكتشف بوابة الشبكة وتفتح صفحة إعدادات الراوتر."
+    "@type":"HowTo",
+    "name":"الدخول إلى صفحة إعدادات الراوتر",
+    "description":"اكتشاف عنوان بوابة الشبكة وفتح لوحة إدارة الراوتر بأمان.",
+    "step":[
+      {"@type":"HowToStep","name":"اتصل بشبكة الراوتر","text":"استخدم Wi-Fi أو كابل الشبكة واتصل بالراوتر المطلوب إدارته."},
+      {"@type":"HowToStep","name":"اعرف عنوان البوابة","text":"استخدم الأداة المحلية أو اعرض Default Gateway من إعدادات الشبكة."},
+      {"@type":"HowToStep","name":"افتح العنوان محليًا","text":"اكتب عنوان البوابة في شريط المتصفح بدل مربع البحث."},
+      {"@type":"HowToStep","name":"سجل الدخول بأمان","text":"استخدم بيانات لوحة الإدارة الموجودة على ملصق الجهاز أو التي عيّنتها سابقًا."}
+    ]
   }
   </script>
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <h1>افتح صفحة إعدادات الراوتر تلقائيًا</h1>
-      <p>نزّل الملف المناسب لنظامك وشغّله. ستكتشف الأداة عنوان بوابة الشبكة وتفتح صفحة الراوتر في المتصفح من دون البحث عن عنوان IP يدويًا.</p>
+  <header>
+    <div class="hero">
+      <span class="eyebrow">أداة محلية ودليل تشخيص</span>
+      <h1>الدخول إلى إعدادات الراوتر وحل مشكلة عدم فتح الصفحة</h1>
+      <p class="lead">تكتشف الأداة عنوان بوابة الشبكة وتفتح لوحة الراوتر مباشرة، من دون الاعتماد على عنوان ثابت. ويشرح الدليل ماذا تفعل إذا ظهرت صفحة خاطئة، أو انتهت مهلة الاتصال، أو رُفضت كلمة المرور.</p>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="card download-card" aria-labelledby="download-title">
-      <h2 id="download-title">اختر نظام التشغيل</h2>
-      <p class="muted">إذا كنت تستخدم Windows اختر الزر الأول. مستخدمو Linux وmacOS يختارون الزر الثاني.</p>
+  <main>
+    <section class="download-card" aria-labelledby="download-title">
+      <h2 id="download-title">افتح صفحة الراوتر تلقائيًا</h2>
+      <p class="small">اختر ملف نظامك. يعمل محليًا، ولا يقرأ كلمات المرور ولا يغير أي إعداد.</p>
       <div class="buttons">
         <a class="button" href="https://github.com/nedal-dev/router-login-ar/raw/refs/heads/main/router-login.bat">تنزيل ملف Windows</a>
         <a class="button" href="https://github.com/nedal-dev/router-login-ar/raw/refs/heads/main/router-login.sh">تنزيل ملف Linux / macOS</a>
+        <a class="button secondary" href="https://github.com/nedal-dev/router-login-ar">عرض الكود المصدري</a>
       </div>
-      <p><a href="https://github.com/nedal-dev/router-login-ar">عرض الكود المصدري على GitHub</a></p>
     </section>
 
-    <section class="card" aria-labelledby="windows-title">
-      <h2 id="windows-title">التشغيل على Windows</h2>
+    <article>
+      <div class="summary"><strong>الخلاصة:</strong> عنوان صفحة الراوتر هو عنوان «البوابة الافتراضية» للشبكة الحالية. قد يكون <code>192.168.1.1</code> أو عنوانًا آخر؛ لذلك الاكتشاف من الجهاز أدق من تجربة عناوين عشوائية.</div>
+
+      <h2>ما الذي تفعله الأداة؟</h2>
+      <p>تقرأ الأداة مسار الشبكة الافتراضي من نظام التشغيل، تستخرج عنوان البوابة، ثم تفتحه في متصفحك. لا تحاول تسجيل الدخول، ولا تعرف اسم المستخدم أو كلمة المرور، ولا تتصل بخادم خارجي.</p>
+      <div class="callout ok"><strong>مهم للخصوصية:</strong> اكتشاف العنوان وفتحه يحدثان على جهازك. تستطيع مراجعة الملف النصي نفسه من زر «عرض الكود المصدري» قبل تشغيله.</div>
+
+      <h2>طريقة التشغيل الصحيحة</h2>
       <ol class="steps">
-        <li>نزّل ملف <code>router-login.bat</code>.</li>
-        <li>تأكد من اتصال الكمبيوتر بشبكة الراوتر.</li>
-        <li>انقر مرتين على الملف.</li>
-        <li>ستفتح صفحة الراوتر في المتصفح الافتراضي.</li>
+        <li><strong>اتصل بالراوتر المطلوب.</strong> استخدم شبكة Wi-Fi الخاصة به أو صِل الكمبيوتر بكابل Ethernet.</li>
+        <li><strong>أوقف VPN مؤقتًا عند الحاجة.</strong> بعض تطبيقات VPN تغيّر مسار الشبكة الافتراضي، فتقودك إلى عنوان غير مناسب.</li>
+        <li><strong>شغّل ملف نظامك.</strong> في Windows افتح <code>router-login.bat</code>، وفي Linux أو macOS امنح الملف صلاحية التشغيل ثم شغّله.</li>
+        <li><strong>تحقق من العنوان الظاهر.</strong> يجب أن يكون عنوانًا محليًا، لا موقعًا عامًا على الإنترنت.</li>
+        <li><strong>أدخل بيانات لوحة الإدارة.</strong> استخدم البيانات التي عيّنتها أو المطبوعة على ملصق الجهاز، وليس كلمة مرور Wi-Fi بالضرورة.</li>
       </ol>
-      <p class="muted">لا يعتمد الاكتشاف على لغة Windows، لذلك يعمل حتى لو كانت واجهة النظام هولندية أو عربية.</p>
-    </section>
 
-    <section class="card" aria-labelledby="unix-title">
-      <h2 id="unix-title">التشغيل على Linux أو macOS</h2>
-      <ol class="steps">
-        <li>نزّل ملف <code>router-login.sh</code>.</li>
-        <li>امنحه صلاحية التشغيل بالأمر <code>chmod +x router-login.sh</code>.</li>
-        <li>شغّله بالأمر <code>./router-login.sh</code>.</li>
-      </ol>
-      <p>إذا تعذر الاكتشاف، يمكنك كتابة العنوان يدويًا بعد اسم الملف، مثل <code>./router-login.sh 192.168.1.1</code>.</p>
-    </section>
+      <h2>كيف تعرف العنوان يدويًا؟</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>الجهاز أو النظام</th><th>المسار</th><th>ما الذي تبحث عنه؟</th></tr></thead>
+          <tbody>
+            <tr><td>Windows</td><td>افتح موجه الأوامر وشغّل <code>ipconfig</code></td><td>السطر المسمى <strong>Default Gateway</strong></td></tr>
+            <tr><td>Linux</td><td>شغّل <code>ip route</code></td><td>العنوان الذي يلي كلمة <code>default via</code></td></tr>
+            <tr><td>macOS</td><td>إعدادات النظام ← الشبكة ← تفاصيل الاتصال</td><td>الحقل المسمى Router أو Gateway</td></tr>
+            <tr><td>Android</td><td>تفاصيل شبكة Wi-Fi المتصل بها الهاتف</td><td>Gateway أو البوابة؛ قد تحتاج إلى فتح التفاصيل المتقدمة</td></tr>
+            <tr><td>iPhone / iPad</td><td>الإعدادات ← Wi-Fi ← زر المعلومات بجانب الشبكة</td><td>الحقل «Router»</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">العناوين <code>192.168.1.1</code> و<code>192.168.0.1</code> و<code>192.168.8.1</code> أمثلة شائعة فقط وليست قاعدة عامة.</p>
 
-    <section class="card" aria-labelledby="problem-title">
-      <h2 id="problem-title">إذا لم تفتح صفحة الراوتر</h2>
-      <ol class="steps">
-        <li>تأكد من اتصال الجهاز بشبكة الراوتر نفسها.</li>
-        <li>جرّب العنوان الذي تعرضه الأداة يدويًا.</li>
-        <li>لا تستخدم زر Reset لمجرد أن الصفحة لم تفتح؛ قد يمسح إعدادات الاتصال.</li>
-        <li>قد تمنع شبكة الضيوف الوصول إلى صفحة الإدارة.</li>
-      </ol>
-    </section>
+      <h2>شخّص المشكلة من النتيجة التي ظهرت</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ما الذي ظهر؟</th><th>السبب المحتمل</th><th>الخطوة التالية</th></tr></thead>
+          <tbody>
+            <tr><td>انتهت مهلة الاتصال</td><td>الجهاز ليس على شبكة الراوتر، أو العنوان غير صحيح، أو شبكة الضيوف تعزل الأجهزة</td><td>تحقق من اسم شبكة Wi-Fi ثم أعد استخراج البوابة</td></tr>
+            <tr><td>ظهرت نتائج بحث بدل لوحة الراوتر</td><td>كُتب العنوان في مربع البحث أو من دون صيغة عنوان واضحة</td><td>اكتبه في شريط العنوان مباشرة، مثل <code>http://192.168.1.1</code></td></tr>
+            <tr><td>ظهر تحذير شهادة أو «الاتصال غير خاص»</td><td>بعض اللوحات المحلية تستخدم شهادة ذاتية أو قديمة</td><td>تأكد أولًا من أن العنوان محلي ويخص جهازك؛ لا تتجاوز التحذير لموقع عام مجهول</td></tr>
+            <tr><td>فُتحت صفحة جهاز مختلف</td><td>يوجد مودم وراوتر منفصلان أو أكثر من نقطة وصول</td><td>تحقق من الجهاز الذي يمنح هاتفك أو حاسوبك عنوان الشبكة</td></tr>
+            <tr><td>الصفحة تفتح لكن الدخول مرفوض</td><td>كلمة مرور الإدارة مختلفة عن كلمة مرور Wi-Fi أو سبق تغييرها</td><td>راجع ملصق الجهاز ودليل المزود قبل التفكير في إعادة الضبط</td></tr>
+            <tr><td>الصفحة تعمل على جهاز ولا تعمل على آخر</td><td>VPN أو Proxy أو إعداد DNS/متصفح أو عزل داخل الشبكة</td><td>جرّب متصفحًا آخر، وأوقف VPN، واستخدم الجهاز المتصل مباشرة بالراوتر</td></tr>
+          </tbody>
+        </table>
+      </div>
 
-    <section class="card" aria-labelledby="privacy-title">
-      <h2 id="privacy-title">الخصوصية والأمان</h2>
-      <div class="privacy">تعمل الأداة محليًا بالكامل. لا تجمع بيانات، ولا تقرأ كلمات المرور، ولا تغيّر إعدادات الراوتر؛ وظيفتها فقط اكتشاف عنوان بوابة الشبكة وفتحه.</div>
-    </section>
+      <div class="callout warn"><strong>لا يلزم وجود إنترنت:</strong> لوحة الإدارة صفحة محلية داخل الراوتر. يمكن أن تفتح حتى لو كان اتصال الإنترنت متوقفًا، بشرط أن تكون متصلًا بالراوتر نفسه.</div>
 
-    <section class="card" aria-labelledby="article-title">
-      <h2 id="article-title">تحتاج شرحًا أوسع؟</h2>
-      <p>يتضمن مقال إدراك طرق معرفة عنوان الراوتر من الهاتف والكمبيوتر وحلول مشكلة عدم فتح صفحة الإعدادات.</p>
-      <p><a class="button secondary" href="https://idraaak.com/%D8%A7%D9%84%D8%AF%D8%AE%D9%88%D9%84-%D8%A7%D9%84%D9%89-%D8%A7%D9%84%D8%B1%D8%A7%D9%88%D8%AA%D8%B1/">قراءة الشرح الكامل على إدراك</a></p>
-    </section>
+      <h2>كلمة مرور Wi-Fi ليست كلمة مرور الراوتر</h2>
+      <div class="two-col">
+        <section class="card">
+          <h3>كلمة مرور Wi-Fi</h3>
+          <p>تُستخدم لربط الهاتف أو الكمبيوتر بالشبكة اللاسلكية. تغييرها يفصل الأجهزة المتصلة حتى تدخل الكلمة الجديدة.</p>
+        </section>
+        <section class="card">
+          <h3>كلمة مرور لوحة الإدارة</h3>
+          <p>تُستخدم لتعديل إعدادات الراوتر. قد تكون مختلفة تمامًا، وقد يحددها مزود الخدمة أو يطلب تغييرها عند أول دخول.</p>
+        </section>
+      </div>
+      <p>إذا نسيت كلمة مرور الإدارة، افحص ملصق الجهاز ودليله وتطبيق مزود الخدمة أولًا. لا تعتمد على قوائم كلمات المرور الافتراضية المنشورة عشوائيًا؛ قد تكون خاطئة أو غير آمنة.</p>
+
+      <h2>عند وجود مودم وراوتر أو أكثر من جهاز</h2>
+      <p>قد يكون لديك جهاز من مزود الإنترنت وجهاز Wi-Fi إضافي. في هذه الحالة قد توجد لوحتا إدارة بعنوانين مختلفين. عنوان «البوابة الافتراضية» يقود عادةً إلى الجهاز الذي يوجّه اتصالك الحالي، وليس بالضرورة إلى كل أجهزة الشبكة.</p>
+      <ul>
+        <li>اتصل مباشرة بشبكة الجهاز الذي تريد تعديله.</li>
+        <li>إذا كان الجهاز يعمل كنقطة وصول فقط، فقد يأخذ عنوانه من الراوتر الرئيسي.</li>
+        <li>ابحث عن قائمة الأجهزة المتصلة في الراوتر الرئيسي لمعرفة عنوان نقطة الوصول.</li>
+        <li>لا تغيّر وضع Bridge أو إعدادات WAN قبل حفظ القيم الحالية وفهم أثرها.</li>
+      </ul>
+
+      <h2>قبل تعديل الإعدادات</h2>
+      <ul>
+        <li>التقط صورًا للإعدادات الحالية، خصوصًا اتصال WAN وبيانات مزود الخدمة.</li>
+        <li>غيّر بندًا واحدًا في كل مرة ثم اختبر الاتصال.</li>
+        <li>استخدم كلمة مرور إدارة قوية ومختلفة عن كلمة مرور Wi-Fi.</li>
+        <li>حدّث البرنامج الثابت من صفحة الشركة أو مزود الخدمة فقط.</li>
+        <li>اترك «الإدارة عن بُعد» معطلة ما لم تكن تحتاج إليها وتعرف كيفية تأمينها.</li>
+        <li>لا تُدخل بيانات الراوتر في مواقع خارجية تدّعي فتح لوحة الإدارة بالنيابة عنك.</li>
+      </ul>
+
+      <div class="callout danger"><strong>لا تضغط زر Reset لمجرد أن الصفحة لم تفتح.</strong> إعادة ضبط المصنع قد تمسح اسم الشبكة وكلمات المرور وإعدادات اتصال مزود الخدمة، وقد يتوقف الإنترنت حتى تُدخلها من جديد.</div>
+
+      <h2>تشغيل ملف Linux أو macOS</h2>
+      <pre><code>chmod +x router-login.sh
+./router-login.sh</code></pre>
+      <p>إذا كنت تعرف عنوانًا محددًا وتريد فتحه يدويًا عبر الملف:</p>
+      <pre><code>./router-login.sh 192.168.1.1</code></pre>
+
+      <h2>أسئلة شائعة</h2>
+      <details><summary>هل تستطيع الأداة معرفة كلمة مرور الراوتر؟</summary><p>لا. وظيفتها تقتصر على اكتشاف عنوان البوابة وفتح الصفحة المحلية. لا تقرأ كلمات المرور ولا تتجاوز تسجيل الدخول.</p></details>
+      <details><summary>لماذا يفتح العنوان في الهاتف ولا يفتح في الكمبيوتر؟</summary><p>غالبًا يكون الكمبيوتر متصلًا بمسار مختلف أو يستخدم VPN أو Proxy، أو توجد مشكلة في المتصفح. تحقق من الشبكة وأوقف VPN مؤقتًا ثم أعد المحاولة.</p></details>
+      <details><summary>هل عنوان الراوتر دائمًا 192.168.1.1؟</summary><p>لا. يختلف حسب الشركة والإعدادات وتركيب الشبكة، ولهذا يُفضّل قراءة عنوان البوابة من الجهاز المتصل.</p></details>
+      <details><summary>ماذا أفعل إذا نسيت بيانات الإدارة؟</summary><p>ابدأ بملصق الجهاز ودليل الشركة وتطبيق مزود الخدمة أو الدعم الفني. اجعل إعادة ضبط المصنع خيارًا أخيرًا بعد التأكد من امتلاك إعدادات الاتصال اللازمة.</p></details>
+
+      <div class="cta-row">
+        <a class="cta" href="https://idraaak.com/%D8%A7%D9%84%D8%AF%D8%AE%D9%88%D9%84-%D8%A7%D9%84%D9%89-%D8%A7%D9%84%D8%B1%D8%A7%D9%88%D8%AA%D8%B1/">قراءة الشرح الكامل على إدراك</a>
+        <span class="small">شرح إضافي لمعرفة العنوان من الهاتف والكمبيوتر وحل مشكلات صفحة الإدارة.</span>
+      </div>
+    </article>
   </main>
-
-  <footer>مشروع عربي مفتوح المصدر من نضال ش. — <a href="https://idraaak.com/">إدراك</a></footer>
+  <footer>إدراك — أداة عربية مفتوحة المصدر ودليل استخدام عملي.</footer>
 </body>
 </html>
